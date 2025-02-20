@@ -1,0 +1,15 @@
+beautifulsoup4==4.13.3
+certifi==2025.1.31
+charset-normalizer==3.4.1
+coloredlogs==15.0.1
+dotenv==0.9.9
+humanfriendly==10.0
+idna==3.10
+logging==0.4.9.6
+niels_coloredlogger==0.2
+python-dotenv==1.0.1
+pytz==2025.1
+requests==2.32.3
+soupsieve==2.6
+typing_extensions==4.12.2
+urllib3==2.3.0

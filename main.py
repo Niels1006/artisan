@@ -62,7 +62,8 @@ def fetch(client: requests.Session, sir: int, size: int, color: int) -> PadInfo:
         Dict with info about pad
     """
     req = client.post(
-        "https://www.artisan-jp.com/get_syouhin.php", data={"kuni": "on", "sir": sir, "size": size, "color": color}
+        "https://www.artisan-jp.com/get_syouhin.php",
+        data={"kuni": "on", "sir": sir, "size": size, "color": color},
     )
 
     if req.status_code != 200:
@@ -123,8 +124,14 @@ def send_webhook(info: PadInfo):
 
 
 def get_avail():
-    with open("data.json", "r") as f:
-        return json.load(f)
+    try:
+        with open("data.json", "r") as f:
+            return json.load(f)
+
+    except FileNotFoundError:
+        with open("data.json", "w") as f:
+            json.dump({}, f)
+        return {}
 
 
 def add_to_avail(availablity: dict[str, PadInfo], info: PadInfo):
